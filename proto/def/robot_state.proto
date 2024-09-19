@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package sbai_tak_bridge_protos;
+
+import "mgrs_pose.proto";
+import "fault_state.proto";
+
+message RobotState {
+  MgrsPose pose = 1;
+  float speed_mph = 2;
+  float battery_percent = 3;
+  float signal_strength_percent = 4;
+  FaultState fault_state = 5;
+  AutonomyState autonomy_state = 6;
+  string front_camera_stream_key = 7;
+  string back_camera_stream_key = 8;
+}
+
+enum AutonomyState {
+  AUTONOMY_STATE_UNSPECIFIED = 0;
+  AUTONOMY_STATE_INIT = 1;
+  AUTONOMY_STATE_HIBERNATE = 2;
+  AUTONOMY_STATE_STANDBY = 3;
+  AUTONOMY_STATE_TELEOP = 4;
+  AUTONOMY_STATE_SOLO_AUTO = 5;
+  AUTONOMY_STATE_SWARM_AUTO = 6;
+}

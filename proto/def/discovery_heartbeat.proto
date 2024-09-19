@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package sbai_swarm_discovery_protos;
+
+import "cortex_state_update.proto";
+import "transform_stamped.proto";
+
+message DiscoveryHeartbeat {
+    sbai_cortex_protos.CortexStateUpdate state = 1;
+    string robot_id = 2;
+    string ip_address = 3;
+    sbai_geometry_protos.TransformStamped pose = 4;
+}

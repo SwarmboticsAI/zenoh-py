@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package sbai_tak_bridge_protos;
+
+message MgrsCoordinate {
+  string zone_identifier = 1;
+  string square_identifier = 2;
+  int32 easting = 3;
+  int32 northing = 4;
+}

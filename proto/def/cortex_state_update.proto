@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package sbai_cortex_protos;
+
+enum State {
+    INIT = 0;
+    HIBERNATE = 1;
+    STANDBY = 2;
+    TELEOP = 3;
+    SOLO_AUTO = 4;
+    SWARM_AUTO = 5;
+}
+
+message CortexStateUpdate {
+    State new_state = 1;
+}

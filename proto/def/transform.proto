@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package sbai_geometry_protos;
+
+import "quaternion.proto";
+import "vector3.proto";
+
+message Transform {
+    sbai_geometry_protos.Vector3 translation = 1;
+    sbai_geometry_protos.Quaternion rotation = 2;
+}
