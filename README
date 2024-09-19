@@ -1,0 +1,27 @@
+## Setting up the Python Environment
+
+1. Ensure you have Python 3.x installed.
+2. Clone this repository:
+   ```
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   ```
+3. Create a virtual environment:
+   ```
+   python -m venv z-env
+   ```
+4. Activate the virtual environment:
+   - On Windows:
+     ```
+     z-env\Scripts\activate
+     ```
+   - On macOS and Linux:
+     ```
+     source z-env/bin/activate
+     ```
+5. Install the required packages:
+   ```
+   pip install -r requirements.txt
+   ```
+
+Now you're ready to run the scripts!

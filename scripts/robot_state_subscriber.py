@@ -1,20 +1,33 @@
 import zenoh
-from state_update_request_pb2 import StateUpdateRequest, State
 import time
+import logging
+import sys
+from pathlib import Path
+
+# Add the compiled protos directory to the Python path
+root_dir = Path(__file__).parent.parent
+proto_compiled_dir = root_dir / 'proto' / 'compiled'
+sys.path.insert(0, str(proto_compiled_dir))
+
+from sbai_tak_bridge_protos import state_update_request_pb2
+from sbai_cortex_protos import cortex_state_update_pb2
+
+# Set up logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def listener(sample):
-    state_update = StateUpdateRequest()
+    state_update = state_update_request_pb2.StateUpdateRequest()
     state_update.ParseFromString(sample.payload)
-    print(f"Received StateUpdateRequest: {State.Name(state_update.requested_state)}")
+    logging.info(f"Received StateUpdateRequest: {cortex_state_update_pb2.CortexState.Name(state_update.requested_state)} :: {sample.key_expr}")
 
 def main():
     # Initialize Zenoh session
     session = zenoh.open()
 
     # Create a subscriber
-    subscriber = session.declare_subscriber("state/updates", listener)
+    subscriber = session.declare_subscriber("ants/*/state_update_request", listener)
 
-    print("Subscribed to state/updates. Press Ctrl+C to exit.")
+    logging.info("Subscribed to ants/*/state_update_request. Press Ctrl+C to exit.")
 
     try:
         # Keep the script running
