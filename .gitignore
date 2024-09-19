@@ -47,7 +47,7 @@ wheels/
 Thumbs.db
 
 # Compiled proto files
-proto/compiled/
+# proto/compiled/
 
 # Logs
 *.log
