@@ -3,19 +3,18 @@ import subprocess
 from pathlib import Path
 
 def compile_protos():
-    # Define paths
     root_dir = Path(__file__).parent.parent
     proto_def_dir = root_dir / 'proto' / 'def'
     proto_compiled_dir = root_dir / 'proto' / 'compiled'
 
-    # Create compiled directory if it doesn't exist
+    # Create the compiled directory if it doesn't exist
     proto_compiled_dir.mkdir(parents=True, exist_ok=True)
 
-    # Find all .proto files in the def directory
-    proto_files = list(proto_def_dir.glob('**/*.proto'))
+    # Find all .proto files recursively
+    proto_files = list(proto_def_dir.rglob('*.proto'))
 
     if not proto_files:
-        print("No .proto files found in the def directory.")
+        print("No .proto files found in the def/ directory.")
         return
 
     # Compile each .proto file
@@ -23,7 +22,7 @@ def compile_protos():
         relative_path = proto_file.relative_to(proto_def_dir)
         output_dir = proto_compiled_dir / relative_path.parent
 
-        # Create output directory if it doesn't exist
+        # Create the output directory if it doesn't exist
         output_dir.mkdir(parents=True, exist_ok=True)
 
         # Construct the protoc command
@@ -36,10 +35,14 @@ def compile_protos():
 
         # Run the protoc command
         try:
-            subprocess.run(cmd, check=True)
+            result = subprocess.run(cmd, check=True, capture_output=True, text=True)
             print(f"Compiled: {relative_path}")
         except subprocess.CalledProcessError as e:
-            print(f"Error compiling {relative_path}: {e}")
+            print(f"Error compiling {relative_path}:")
+            print(f"Command: {' '.join(cmd)}")
+            print(f"Error output: {e.stderr}")
+
+    print("Proto compilation completed.")
 
 if __name__ == "__main__":
     compile_protos()
