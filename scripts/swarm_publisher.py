@@ -1,69 +1,87 @@
 import sys
 import os
+from pathlib import Path
 import logging
 import traceback
-
-# Add the directory containing the generated proto files to the Python path
-proto_dir = os.path.join(os.path.dirname(__file__), 'proto')
-sys.path.append(proto_dir)
-
 import asyncio
 import random
 import time
-from google.protobuf import timestamp_pb2
 from zenoh import Session, Config
 
+# Add the compiled protos directory to the Python path
+root_dir = Path(__file__).parent.parent
+proto_compiled_dir = root_dir / 'proto' / 'compiled'
+sys.path.insert(0, str(proto_compiled_dir))
+
 # Import the generated protobuf classes
-from proto.discovery_heartbeat_pb2 import DiscoveryHeartbeat
-from proto.cortex_state_update_pb2 import CortexStateUpdate, State
-from proto.transform_stamped_pb2 import TransformStamped
-from proto.header_pb2 import Header
-from proto.transform_pb2 import Transform
-from proto.vector3_pb2 import Vector3
-from proto.quaternion_pb2 import Quaternion
-from proto.time_pb2 import Time
+from sbai_swarm_discovery_protos import discovery_heartbeat_pb2
+from sbai_cortex_protos import cortex_state_update_pb2
+from sbai_geometry_protos import pose_stamped_pb2, pose_pb2, vector3_pb2, quaternion_pb2
+from sbai_std_protos import header_pb2
+from sbai_builtin_protos import time_pb2
+from sbai_geographic_protos import geo_point_pb2
 
 # Set up logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 async def publish_heartbeat(session, robot_id):
-    key = f"ants/discovery_heartbeat"
+    key = "ants/discovery_heartbeat"
     try:
         publisher = session.declare_publisher(key)
-        logging.info(f"Publisher declared for robot_{robot_id}")
     except Exception as e:
         logging.error(f"Failed to declare publisher for robot_{robot_id}: {e}")
         return
 
+    # Initialize random state and position
+    current_state = random.choice(list(cortex_state_update_pb2.CortexState.values()))
+    current_latitude = 33.5933764 + random.uniform(-0.0002307, 0.0002307)
+    current_longitude = -111.8541477 + random.uniform(-0.0002307, 0.0002307)
+    last_state_change = time.time()
+
     while True:
         try:
-            heartbeat = DiscoveryHeartbeat()
+            # Check if 10 seconds have passed to potentially change state
+            current_time = time.time()
+            if current_time - last_state_change > 10 and random.random() < 0.2:  # 20% chance every 10 seconds
+                current_state = random.choice(list(cortex_state_update_pb2.CortexState.values()))
+                last_state_change = current_time
+
+            # Slightly adjust lat/long to simulate movement
+            current_latitude += random.uniform(-0.000005, 0.000005)
+            current_longitude += random.uniform(-0.000005, 0.000005)
+
+            heartbeat = discovery_heartbeat_pb2.DiscoveryHeartbeat()
             heartbeat.robot_id = f"robot_{robot_id}"
             heartbeat.ip_address = f"10.0.{robot_id}.1"
-            
-            heartbeat.state.new_state = State.TELEOP
+            heartbeat.state = current_state
             
             heartbeat.pose.header.frame_id = "map"
-            current_time = time.time()
             heartbeat.pose.header.stamp.sec = int(current_time)
             heartbeat.pose.header.stamp.nanosec = int((current_time - int(current_time)) * 1e9)
-            heartbeat.pose.child_frame_id = f"robot_{robot_id}"
-            heartbeat.pose.transform.translation.x = random.uniform(-10, 10)
-            heartbeat.pose.transform.translation.y = random.uniform(-10, 10)
-            heartbeat.pose.transform.translation.z = 0
-            heartbeat.pose.transform.rotation.w = 1
+            
+            heartbeat.pose.pose.position.x = (current_longitude + 111.8541477) * 111000  # Rough conversion to meters
+            heartbeat.pose.pose.position.y = (current_latitude - 33.5933764) * 111000  # Rough conversion to meters
+            heartbeat.pose.pose.position.z = 0
+            heartbeat.pose.pose.orientation.x = 0
+            heartbeat.pose.pose.orientation.y = 0
+            heartbeat.pose.pose.orientation.z = 0
+            heartbeat.pose.pose.orientation.w = 1
+
+            heartbeat.gps_coordinate.latitude = current_latitude
+            heartbeat.gps_coordinate.longitude = current_longitude
+            heartbeat.gps_coordinate.altitude = random.uniform(0, 100)
 
             serialized_data = heartbeat.SerializeToString()
             publisher.put(serialized_data)
             
-            logging.info(f"Published heartbeat for robot_{robot_id}: x={heartbeat.pose.transform.translation.x:.2f}, y={heartbeat.pose.transform.translation.y:.2f}")
+            logging.info(f"Robot_{robot_id}: state={cortex_state_update_pb2.CortexState.Name(current_state)}, lat={current_latitude:.7f}, lon={current_longitude:.7f}")
+
         except Exception as e:
             logging.error(f"Error publishing heartbeat for robot_{robot_id}: {e}")
             traceback.print_exc()
 
         if random.random() < 0.1:  # 10% chance of "missing" a publish
             delay = random.uniform(0.5, 5)
-            logging.warning(f"robot_{robot_id} simulating network issue. Delaying for {delay:.2f} seconds")
             await asyncio.sleep(delay)
         else:
             await asyncio.sleep(0.25)  # Normal 250ms interval
