@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package sbai_tak_bridge_protos;
+
+import "sbai_cortex_protos/cortex_state_update.proto";
+
+message StateUpdateRequest {
+  sbai_cortex_protos.CortexState requested_state = 1;
+}

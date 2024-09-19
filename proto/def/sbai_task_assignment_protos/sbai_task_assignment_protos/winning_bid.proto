@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package sbai_task_assignment_protos;
+
+message WinningBid {
+    int32 task_id = 1;
+    float bid_value = 2;
+}

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package sbai_std_protos;
 
-import "time.proto";
+import "sbai_builtin_protos/time.proto";
 
 // Standard metadata for higher-level stamped data types.
 // This is generally used to communicate timestamped data

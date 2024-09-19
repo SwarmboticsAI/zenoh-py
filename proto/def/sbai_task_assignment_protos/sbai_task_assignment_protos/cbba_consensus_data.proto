@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package sbai_task_assignment_protos;
+
+import "sbai_task_assignment_protos/update_iteration.proto";
+import "sbai_task_assignment_protos/winning_agent.proto";
+import "sbai_task_assignment_protos/winning_bid.proto";
+
+message CBBAConsensusData {
+    repeated sbai_task_assignment_protos.WinningBid winning_bids_list = 1;
+    repeated sbai_task_assignment_protos.WinningAgent winning_agents_list = 2;
+    repeated sbai_task_assignment_protos.UpdateIteration time_stamp_list = 3;
+}

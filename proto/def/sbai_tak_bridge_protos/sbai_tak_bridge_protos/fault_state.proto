@@ -1,0 +1,69 @@
+syntax = "proto3";
+package sbai_tak_bridge_protos;
+
+message FaultState {
+  // perception subsystem errors
+  bool error_perception_none = 1;
+  bool error_perception_generic = 2;
+  bool error_perception_camera = 3;
+  bool error_perception_rtsp_server = 4;
+  bool error_perception_lidar = 5;
+  bool error_perception_bringup = 6;
+
+  // perception subsystem warnings
+  bool warning_perception_none = 7;
+  bool warning_perception_generic = 8;
+  bool warning_perception_camera_obstruction = 9;
+  bool warning_perception_lidar_obstruction = 10;
+
+  // localization subsystem errors
+  bool error_localization_none = 11;
+  bool error_localization_generic = 12;
+
+  // localization subsystem warnings
+  bool warning_localization_none = 13;
+  bool warning_localization_generic = 14;
+
+  // control subsystem errors
+  bool error_control_none = 15;
+  bool error_control_generic = 16;
+  bool error_control_can = 17;
+
+  // control subsystem warnings
+  bool warning_control_none = 18;
+  bool warning_control_generic = 19;
+
+  // navigation subsystem errors
+  bool error_navigation_none = 20;
+  bool error_navigation_generic = 21;
+
+  // navigation subsystem warnings
+  bool warning_navigation_none = 22;
+  bool warning_navigation_generic = 23;
+
+  // platform subsystem errors
+  bool error_platform_none = 24;
+  bool error_platform_generic = 25;
+
+  // platform subsystem warnings
+  bool warning_platform_none = 26;
+  bool warning_platform_generic = 27;
+  bool warning_platform_battery_low = 28;
+  bool warning_platform_over_temp = 29;
+  bool warning_platform_high_tilt = 30;
+
+  // network subsystem errors
+  bool error_network_none = 31;
+  bool error_network_generic = 32;
+
+  // network subsystem warnings
+  bool warning_network_none = 33;
+  bool warning_network_generic = 34;
+  bool warning_network_low_signal = 35;
+
+  // verbose description of error state
+  string error_description = 36;
+
+  // verbose description of warning state
+  string warning_description = 37;
+}

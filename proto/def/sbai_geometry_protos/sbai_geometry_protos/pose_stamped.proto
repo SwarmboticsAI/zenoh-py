@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package sbai_geometry_protos;
+
+import "sbai_geometry_protos/pose.proto";
+import "sbai_std_protos/header.proto";
+
+// A Pose with reference coordinate frame and timestamp
+
+message PoseStamped {
+    sbai_std_protos.Header header = 1;
+    sbai_geometry_protos.Pose pose = 2;
+}

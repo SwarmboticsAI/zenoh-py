@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package sbai_geometry_protos;
+
+import "sbai_geometry_protos/point.proto";
+import "sbai_geometry_protos/quaternion.proto";
+
+// A representation of pose in free space, composed of position and orientation.
+
+message Pose {
+    sbai_geometry_protos.Point position = 1;
+    sbai_geometry_protos.Quaternion orientation = 2;
+}

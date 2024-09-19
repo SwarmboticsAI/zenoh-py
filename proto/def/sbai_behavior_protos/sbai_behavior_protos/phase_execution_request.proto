@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package sbai_behavior_protos;
+
+message PhaseExecutionRequest {
+  bool should_execute_next_phase = 1;
+}

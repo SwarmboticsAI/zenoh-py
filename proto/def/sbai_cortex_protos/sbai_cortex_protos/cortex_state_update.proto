@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package sbai_cortex_protos;
 
-enum State {
+enum CortexState {
     INIT = 0;
     HIBERNATE = 1;
     STANDBY = 2;
@@ -12,5 +12,5 @@ enum State {
 }
 
 message CortexStateUpdate {
-    State new_state = 1;
+    CortexState new_state = 1;
 }

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package sbai_tak_bridge_protos;
+
+message MgrsPoint {
+    string zone_identifier = 1;
+    string square_identifier = 2;
+    int32 easting = 3;
+    int32 northing = 4;
+    double altitude_msl_m = 5;
+}
+
+message MgrsPose {
+    MgrsPoint position = 1;
+    double true_heading_deg = 2;  // or map_heading_deg if it's not true heading
+}

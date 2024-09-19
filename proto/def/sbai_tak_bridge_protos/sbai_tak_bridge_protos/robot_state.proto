@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package sbai_tak_bridge_protos;
+
+import "sbai_tak_bridge_protos/mgrs_pose.proto";
+import "sbai_tak_bridge_protos/fault_state.proto";
+import "sbai_cortex_protos/cortex_state_update.proto";
+
+message RobotState {
+  MgrsPose pose = 1;
+  double speed_mph = 2;
+  double battery_percent = 3;
+  double signal_strength_percent = 4;
+  FaultState fault_state = 5;
+  sbai_cortex_protos.CortexState autonomy_state = 6;
+  string front_camera_stream_key = 7;
+  string back_camera_stream_key = 8;
+}

@@ -3,7 +3,7 @@ syntax = "proto3";
 package sbai_tak_bridge_protos;
 
 message TakJoy {
-  float throttle_effort = 1;
-  float steer_effort = 2;
+  double throttle_effort = 1;
+  double steer_effort = 2;
   bool brake_momentary = 3;
 }

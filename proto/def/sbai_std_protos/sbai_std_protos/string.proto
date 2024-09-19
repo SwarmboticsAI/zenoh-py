@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package sbai_std_protos;
+
+message String {
+    string data = 1;
+}

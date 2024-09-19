@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package sbai_geometry_protos;
+
+// This contains the position of a point in free space
+
+message Point {
+    double x = 1;
+    double y = 2;
+    double z = 3;
+}

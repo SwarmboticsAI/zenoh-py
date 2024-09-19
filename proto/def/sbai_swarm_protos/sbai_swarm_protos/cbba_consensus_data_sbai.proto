@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package sbai_swarm_protos;
+
+import "sbai_std_protos/string.proto";
+import "sbai_task_assignment_protos/cbba_consensus_data.proto";
+
+message CBBAConsensusDataSBAI {
+  sbai_std_protos.String robot_id = 1;
+  sbai_task_assignment_protos.CBBAConsensusData data = 2;
+}

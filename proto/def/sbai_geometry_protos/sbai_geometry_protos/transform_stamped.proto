@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package sbai_geometry_protos;
 
-import "transform.proto";
-import "header.proto";
+import "sbai_geometry_protos/transform.proto";
+import "sbai_std_protos/header.proto";
 
 // This expresses a transform from coordinate frame header.frame_id
 // to the coordinate frame child_frame_id at the time of header.stamp

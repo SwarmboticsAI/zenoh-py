@@ -1,7 +1,10 @@
 import os
 import requests
 import subprocess
+import logging
 from pathlib import Path
+
+logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def get_github_token():
     try:
@@ -15,9 +18,8 @@ def get_github_token():
             for line in result.stdout.splitlines():
                 if line.startswith('password='):
                     return line.split('=', 1)[1]
-    except FileNotFoundError:
-        pass
-
+    except Exception as e:
+        logging.error(f"Error getting GitHub token: {e}")
     raise ValueError("GitHub token not found. Please set up your Git credentials for GitHub.")
 
 def download_file(url, target_path, headers):
@@ -26,50 +28,61 @@ def download_file(url, target_path, headers):
     with open(target_path, 'wb') as f:
         f.write(response.content)
 
+def get_contents(url, headers):
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()
+    return response.json()
+
+def process_directory(api_url, local_dir, headers):
+    contents = get_contents(api_url, headers)
+    proto_files_count = 0
+
+    for item in contents:
+        if item['type'] == 'file' and item['name'].endswith('.proto'):
+            file_url = item['download_url']
+            file_path = local_dir / item['name']
+            download_file(file_url, file_path, headers)
+            proto_files_count += 1
+        elif item['type'] == 'dir':
+            subdir_api_url = item['url']
+            subdir_local_path = local_dir / item['name']
+            subdir_local_path.mkdir(parents=True, exist_ok=True)
+            proto_files_count += process_directory(subdir_api_url, subdir_local_path, headers)
+
+    return proto_files_count
+
 def refresh_protos():
-    # Configuration
     repo_owner = "SwarmboticsAI"
     repo_name = "swarm"
     directory_path = "robot/ros2_interfaces"
     branch = "main"
 
-    # Get GitHub token
-    github_token = get_github_token()
+    try:
+        github_token = get_github_token()
+    except ValueError as e:
+        logging.error(f"Failed to get GitHub token: {e}")
+        return
 
-    # Define paths
     root_dir = Path(__file__).parent.parent
     proto_def_dir = root_dir / 'proto' / 'def'
-
-    # Ensure the proto definition directory exists
     proto_def_dir.mkdir(parents=True, exist_ok=True)
 
-    # GitHub API URL
     api_url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/{directory_path}?ref={branch}"
-
-    # Set up headers for authentication
     headers = {
         'Authorization': f'token {github_token}',
         'Accept': 'application/vnd.github.v3+json'
     }
 
     try:
-        # Get the directory contents
-        response = requests.get(api_url, headers=headers)
-        response.raise_for_status()
-        contents = response.json()
-
-        # Download each .proto file
-        for item in contents:
-            if item['type'] == 'file' and item['name'].endswith('.proto'):
-                file_url = item['download_url']
-                file_path = proto_def_dir / item['name']
-                download_file(file_url, file_path, headers)
-                print(f"Downloaded: {item['name']}")
-
-        print("Proto files refreshed successfully.")
-
+        total_proto_files = process_directory(api_url, proto_def_dir, headers)
+        if total_proto_files == 0:
+            logging.warning("No .proto files found in the specified directory and its subdirectories")
+        else:
+            print(f"Successfully downloaded {total_proto_files} .proto files")
     except requests.RequestException as e:
-        print(f"Error refreshing proto files: {e}")
+        logging.error(f"Error refreshing proto files: {e}")
+    except Exception as e:
+        logging.error(f"Unexpected error: {e}")
 
 if __name__ == "__main__":
     refresh_protos()
