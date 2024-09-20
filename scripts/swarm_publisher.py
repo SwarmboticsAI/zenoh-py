@@ -81,14 +81,14 @@ async def publish_heartbeat(session, robot_id):
             traceback.print_exc()
 
         if random.random() < 0.1:  # 10% chance of "missing" a publish
-            delay = random.uniform(0.5, 5)
+            delay = random.uniform(5, 15)
             await asyncio.sleep(delay)
         else:
             await asyncio.sleep(0.25)  # Normal 250ms interval
 
 async def main():
-    num_robots = input("Enter the number of robots (default is 5): ")
-    num_robots = int(num_robots) if num_robots.isdigit() else 5
+    num_robots = input("Enter the number of robots (default is 1): ")
+    num_robots = int(num_robots) if num_robots.isdigit() else 1
 
     logging.info(f"Starting heartbeat publisher for {num_robots} robots")
 
