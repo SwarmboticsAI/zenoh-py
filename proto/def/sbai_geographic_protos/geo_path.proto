@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package sbai_geographic_protos;
+
+import "sbai_geographic_protos/geo_pose_stamped.proto";
+import "sbai_std_protos/header.proto";
+
+message GeoPath {
+    sbai_std_protos.Header header = 1;
+    repeated sbai_geographic_protos.GeoPoseStamped poses = 2;
+}

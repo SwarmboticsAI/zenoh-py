@@ -7,7 +7,7 @@ import "sbai_geometry_protos/pose_stamped.proto";
 import "sbai_geographic_protos/geo_point.proto";
 
 message DiscoveryHeartbeat {
-    sbai_cortex_protos.CortexState state = 1;
+    sbai_cortex_protos.CortexStateUpdate state = 1;
     string robot_id = 2;
     string ip_address = 3;
     sbai_geometry_protos.PoseStamped pose = 4;

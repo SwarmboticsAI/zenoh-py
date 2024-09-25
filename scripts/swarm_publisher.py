@@ -53,7 +53,7 @@ async def publish_heartbeat(session, robot_id):
             heartbeat = discovery_heartbeat_pb2.DiscoveryHeartbeat()
             heartbeat.robot_id = f"robot_{robot_id}"
             heartbeat.ip_address = f"10.0.{robot_id}.1"
-            heartbeat.state = current_state
+            heartbeat.state.new_state = current_state
             
             heartbeat.pose.header.frame_id = "map"
             heartbeat.pose.header.stamp.sec = int(current_time)
@@ -74,7 +74,7 @@ async def publish_heartbeat(session, robot_id):
             serialized_data = heartbeat.SerializeToString()
             publisher.put(serialized_data)
             
-            logging.info(f"Robot_{robot_id}: state={cortex_state_update_pb2.CortexState.Name(current_state)}, lat={current_latitude:.7f}, lon={current_longitude:.7f}")
+            logging.info(f"Robot_{robot_id}: state={cortex_state_update_pb2.CortexState.Name(current_state)}:{current_state}, lat={current_latitude:.7f}, lon={current_longitude:.7f}")
 
         except Exception as e:
             logging.error(f"Error publishing heartbeat for robot_{robot_id}: {e}")

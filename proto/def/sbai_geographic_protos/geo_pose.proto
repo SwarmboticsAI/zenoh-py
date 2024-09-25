@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package sbai_geographic_protos;
+
+import "sbai_geographic_protos/geo_point.proto";
+import "sbai_geometry_protos/quaternion.proto";
+
+message GeoPose {
+    sbai_geographic_protos.GeoPoint position = 1;
+    sbai_geometry_protos.Quaternion orientation = 2;
+}

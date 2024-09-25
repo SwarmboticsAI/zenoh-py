@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package sbai_system_alert_protos;
+
+message SystemAlert {
+    string severity = 1;
+    string subsystem_id = 2;
+    string node_id = 3;
+    string alert_code = 4;
+}
