@@ -10,6 +10,7 @@ message DiscoveryHeartbeat {
     sbai_cortex_protos.CortexStateUpdate state = 1;
     string robot_id = 2;
     string ip_address = 3;
-    sbai_geometry_protos.PoseStamped pose = 4;
-    sbai_geographic_protos.GeoPoint gps_coordinate = 5;
+    string vpn_ip_address = 4;
+    sbai_geometry_protos.PoseStamped pose = 5;
+    sbai_geographic_protos.GeoPoint gps_coordinate = 6;
 }

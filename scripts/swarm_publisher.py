@@ -24,7 +24,7 @@ from sbai_geographic_protos import geo_point_pb2
 # Set up logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
-async def publish_heartbeat(session, robot_id):
+async def publish_heartbeat(session, robot_id, allow_lost_connections):
     key = "ants/discovery_heartbeat"
     try:
         publisher = session.declare_publisher(key)
@@ -52,7 +52,7 @@ async def publish_heartbeat(session, robot_id):
 
             heartbeat = discovery_heartbeat_pb2.DiscoveryHeartbeat()
             heartbeat.robot_id = f"robot_{robot_id}"
-            heartbeat.ip_address = f"10.0.{robot_id}.1"
+            heartbeat.ip_address = f"192.168.0.143"
             heartbeat.state.new_state = current_state
             
             heartbeat.pose.header.frame_id = "map"
@@ -80,7 +80,7 @@ async def publish_heartbeat(session, robot_id):
             logging.error(f"Error publishing heartbeat for robot_{robot_id}: {e}")
             traceback.print_exc()
 
-        if random.random() < 0.1:  # 10% chance of "missing" a publish
+        if allow_lost_connections and random.random() < 0.1:  # 10% chance of "missing" a publish
             delay = random.uniform(5, 15)
             await asyncio.sleep(delay)
         else:
@@ -90,6 +90,9 @@ async def main():
     num_robots = input("Enter the number of robots (default is 1): ")
     num_robots = int(num_robots) if num_robots.isdigit() else 1
 
+    allow_lost_connections = input("Allow lost connections? y/N: ")
+    allow_lost_connections = allow_lost_connections.lower() == "y"
+    logging.info(f"should lose connection = {allow_lost_connections}")
     logging.info(f"Starting heartbeat publisher for {num_robots} robots")
 
     try:
@@ -104,7 +107,7 @@ async def main():
         start_delay = random.uniform(0, 3)
         logging.info(f"robot_{robot_id} will start in {start_delay:.2f} seconds")
         await asyncio.sleep(start_delay)
-        task = asyncio.create_task(publish_heartbeat(session, robot_id))
+        task = asyncio.create_task(publish_heartbeat(session, robot_id, allow_lost_connections))
         tasks.append(task)
     
     print(f"Publishing heartbeats for {num_robots} robots. Press Enter to stop...")

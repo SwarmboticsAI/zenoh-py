@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n+sbai_behavior_protos/behavior_request.proto\x12\x14sbai_behavior_protos\x1a&sbai_geographic_protos/geo_point.proto\"q\n\x1aSurroundBehaviorParameters\x12\x38\n\x0esurround_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x19\n\x11surround_radius_m\x18\x02 \x01(\x02\"x\n\x1a\x43onvergeBehaviorParameters\x12\x38\n\x0e\x63onverge_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12 \n\x18\x63onverge_safety_radius_m\x18\x02 \x01(\x02\"\x82\x01\n\x18RaptorBehaviorParameters\x12\x36\n\x0craptor_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x16\n\x0eouter_radius_m\x18\x02 \x01(\x02\x12\x16\n\x0einner_radius_m\x18\x03 \x01(\x02\"\xa0\x01\n\x17LineFormationParameters\x12\x39\n\x0freference_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x1d\n\x15separation_distance_m\x18\x02 \x01(\x02\x12\x14\n\x0cline_yaw_deg\x18\x03 \x01(\x02\x12\x15\n\rrobot_yaw_deg\x18\x04 \x01(\x02\"k\n\x18\x44\x65\x66\x65ndBehaviorParameters\x12\x36\n\x0c\x64\x65\x66\x65nd_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x17\n\x0f\x64\x65\x66\x65nd_radius_m\x18\x02 \x01(\x02\"s\n\x1cNavigateToWaypointParameters\x12:\n\x10\x64\x65sired_waypoint\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x17\n\x0f\x64\x65sired_yaw_deg\x18\x02 \x01(\x02\"\xb1\x04\n\x0f\x42\x65haviorRequest\x12!\n\x19number_of_assigned_agents\x18\x01 \x01(\r\x12:\n\x12requested_behavior\x18\x02 \x01(\x0e\x32\x1e.sbai_behavior_protos.Behavior\x12\x44\n\x08surround\x18\x03 \x01(\x0b\x32\x30.sbai_behavior_protos.SurroundBehaviorParametersH\x00\x12\x44\n\x08\x63onverge\x18\x04 \x01(\x0b\x32\x30.sbai_behavior_protos.ConvergeBehaviorParametersH\x00\x12@\n\x06\x64\x65\x66\x65nd\x18\x05 \x01(\x0b\x32..sbai_behavior_protos.DefendBehaviorParametersH\x00\x12I\n\x10linear_formation\x18\x06 \x01(\x0b\x32-.sbai_behavior_protos.LineFormationParametersH\x00\x12@\n\x06raptor\x18\x07 \x01(\x0b\x32..sbai_behavior_protos.RaptorBehaviorParametersH\x00\x12Q\n\x13waypoint_navigation\x18\x08 \x01(\x0b\x32\x32.sbai_behavior_protos.NavigateToWaypointParametersH\x00\x42\x11\n\x0f\x62\x65havior_params*l\n\x08\x42\x65havior\x12\x0c\n\x08SURROUND\x10\x00\x12\x0c\n\x08\x43ONVERGE\x10\x01\x12\n\n\x06\x44\x45\x46\x45ND\x10\x02\x12\x12\n\x0eLINE_FORMATION\x10\x03\x12\n\n\x06RAPTOR\x10\x04\x12\x18\n\x14NAVIGATE_TO_WAYPOINT\x10\x05\x62\x06proto3'
+  serialized_pb=b'\n+sbai_behavior_protos/behavior_request.proto\x12\x14sbai_behavior_protos\x1a&sbai_geographic_protos/geo_point.proto\"q\n\x1aSurroundBehaviorParameters\x12\x38\n\x0esurround_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x19\n\x11surround_radius_m\x18\x02 \x01(\x02\"x\n\x1a\x43onvergeBehaviorParameters\x12\x38\n\x0e\x63onverge_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12 \n\x18\x63onverge_safety_radius_m\x18\x02 \x01(\x02\"\x82\x01\n\x18RaptorBehaviorParameters\x12\x36\n\x0craptor_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x16\n\x0eouter_radius_m\x18\x02 \x01(\x02\x12\x16\n\x0einner_radius_m\x18\x03 \x01(\x02\"\xa0\x01\n\x17LineFormationParameters\x12\x39\n\x0freference_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x1d\n\x15separation_distance_m\x18\x02 \x01(\x02\x12\x14\n\x0cline_yaw_deg\x18\x03 \x01(\x02\x12\x15\n\rrobot_yaw_deg\x18\x04 \x01(\x02\"k\n\x18\x44\x65\x66\x65ndBehaviorParameters\x12\x36\n\x0c\x64\x65\x66\x65nd_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x17\n\x0f\x64\x65\x66\x65nd_radius_m\x18\x02 \x01(\x02\"s\n\x1cNavigateToWaypointParameters\x12:\n\x10\x64\x65sired_waypoint\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x17\n\x0f\x64\x65sired_yaw_deg\x18\x02 \x01(\x02\"o\n\x1e\x41reaCoverageBehaviorParameters\x12\x37\n\rcoverage_area\x18\x01 \x03(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x14\n\x0clane_width_m\x18\x02 \x01(\x02\"\x80\x05\n\x0f\x42\x65haviorRequest\x12!\n\x19number_of_assigned_agents\x18\x01 \x01(\r\x12:\n\x12requested_behavior\x18\x02 \x01(\x0e\x32\x1e.sbai_behavior_protos.Behavior\x12\x44\n\x08surround\x18\x03 \x01(\x0b\x32\x30.sbai_behavior_protos.SurroundBehaviorParametersH\x00\x12\x44\n\x08\x63onverge\x18\x04 \x01(\x0b\x32\x30.sbai_behavior_protos.ConvergeBehaviorParametersH\x00\x12@\n\x06\x64\x65\x66\x65nd\x18\x05 \x01(\x0b\x32..sbai_behavior_protos.DefendBehaviorParametersH\x00\x12I\n\x10linear_formation\x18\x06 \x01(\x0b\x32-.sbai_behavior_protos.LineFormationParametersH\x00\x12@\n\x06raptor\x18\x07 \x01(\x0b\x32..sbai_behavior_protos.RaptorBehaviorParametersH\x00\x12Q\n\x13waypoint_navigation\x18\x08 \x01(\x0b\x32\x32.sbai_behavior_protos.NavigateToWaypointParametersH\x00\x12M\n\rarea_coverage\x18\t \x01(\x0b\x32\x34.sbai_behavior_protos.AreaCoverageBehaviorParametersH\x00\x42\x11\n\x0f\x62\x65havior_params*\x7f\n\x08\x42\x65havior\x12\x0c\n\x08SURROUND\x10\x00\x12\x0c\n\x08\x43ONVERGE\x10\x01\x12\n\n\x06\x44\x45\x46\x45ND\x10\x02\x12\x12\n\x0eLINE_FORMATION\x10\x03\x12\n\n\x06RAPTOR\x10\x04\x12\x18\n\x14NAVIGATE_TO_WAYPOINT\x10\x05\x12\x11\n\rAREA_COVERAGE\x10\x06\x62\x06proto3'
   ,
   dependencies=[sbai__geographic__protos_dot_geo__point__pb2.DESCRIPTOR,])
 
@@ -62,11 +62,16 @@ _BEHAVIOR = _descriptor.EnumDescriptor(
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='AREA_COVERAGE', index=6, number=6,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1432,
-  serialized_end=1540,
+  serialized_start=1624,
+  serialized_end=1751,
 )
 _sym_db.RegisterEnumDescriptor(_BEHAVIOR)
 
@@ -77,6 +82,7 @@ DEFEND = 2
 LINE_FORMATION = 3
 RAPTOR = 4
 NAVIGATE_TO_WAYPOINT = 5
+AREA_COVERAGE = 6
 
 
 
@@ -335,6 +341,45 @@ _NAVIGATETOWAYPOINTPARAMETERS = _descriptor.Descriptor(
 )
 
 
+_AREACOVERAGEBEHAVIORPARAMETERS = _descriptor.Descriptor(
+  name='AreaCoverageBehaviorParameters',
+  full_name='sbai_behavior_protos.AreaCoverageBehaviorParameters',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='coverage_area', full_name='sbai_behavior_protos.AreaCoverageBehaviorParameters.coverage_area', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='lane_width_m', full_name='sbai_behavior_protos.AreaCoverageBehaviorParameters.lane_width_m', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=868,
+  serialized_end=979,
+)
+
+
 _BEHAVIORREQUEST = _descriptor.Descriptor(
   name='BehaviorRequest',
   full_name='sbai_behavior_protos.BehaviorRequest',
@@ -399,6 +444,13 @@ _BEHAVIORREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='area_coverage', full_name='sbai_behavior_protos.BehaviorRequest.area_coverage', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -416,8 +468,8 @@ _BEHAVIORREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=869,
-  serialized_end=1430,
+  serialized_start=982,
+  serialized_end=1622,
 )
 
 _SURROUNDBEHAVIORPARAMETERS.fields_by_name['surround_point'].message_type = sbai__geographic__protos_dot_geo__point__pb2._GEOPOINT
@@ -426,6 +478,7 @@ _RAPTORBEHAVIORPARAMETERS.fields_by_name['raptor_point'].message_type = sbai__ge
 _LINEFORMATIONPARAMETERS.fields_by_name['reference_point'].message_type = sbai__geographic__protos_dot_geo__point__pb2._GEOPOINT
 _DEFENDBEHAVIORPARAMETERS.fields_by_name['defend_point'].message_type = sbai__geographic__protos_dot_geo__point__pb2._GEOPOINT
 _NAVIGATETOWAYPOINTPARAMETERS.fields_by_name['desired_waypoint'].message_type = sbai__geographic__protos_dot_geo__point__pb2._GEOPOINT
+_AREACOVERAGEBEHAVIORPARAMETERS.fields_by_name['coverage_area'].message_type = sbai__geographic__protos_dot_geo__point__pb2._GEOPOINT
 _BEHAVIORREQUEST.fields_by_name['requested_behavior'].enum_type = _BEHAVIOR
 _BEHAVIORREQUEST.fields_by_name['surround'].message_type = _SURROUNDBEHAVIORPARAMETERS
 _BEHAVIORREQUEST.fields_by_name['converge'].message_type = _CONVERGEBEHAVIORPARAMETERS
@@ -433,6 +486,7 @@ _BEHAVIORREQUEST.fields_by_name['defend'].message_type = _DEFENDBEHAVIORPARAMETE
 _BEHAVIORREQUEST.fields_by_name['linear_formation'].message_type = _LINEFORMATIONPARAMETERS
 _BEHAVIORREQUEST.fields_by_name['raptor'].message_type = _RAPTORBEHAVIORPARAMETERS
 _BEHAVIORREQUEST.fields_by_name['waypoint_navigation'].message_type = _NAVIGATETOWAYPOINTPARAMETERS
+_BEHAVIORREQUEST.fields_by_name['area_coverage'].message_type = _AREACOVERAGEBEHAVIORPARAMETERS
 _BEHAVIORREQUEST.oneofs_by_name['behavior_params'].fields.append(
   _BEHAVIORREQUEST.fields_by_name['surround'])
 _BEHAVIORREQUEST.fields_by_name['surround'].containing_oneof = _BEHAVIORREQUEST.oneofs_by_name['behavior_params']
@@ -451,12 +505,16 @@ _BEHAVIORREQUEST.fields_by_name['raptor'].containing_oneof = _BEHAVIORREQUEST.on
 _BEHAVIORREQUEST.oneofs_by_name['behavior_params'].fields.append(
   _BEHAVIORREQUEST.fields_by_name['waypoint_navigation'])
 _BEHAVIORREQUEST.fields_by_name['waypoint_navigation'].containing_oneof = _BEHAVIORREQUEST.oneofs_by_name['behavior_params']
+_BEHAVIORREQUEST.oneofs_by_name['behavior_params'].fields.append(
+  _BEHAVIORREQUEST.fields_by_name['area_coverage'])
+_BEHAVIORREQUEST.fields_by_name['area_coverage'].containing_oneof = _BEHAVIORREQUEST.oneofs_by_name['behavior_params']
 DESCRIPTOR.message_types_by_name['SurroundBehaviorParameters'] = _SURROUNDBEHAVIORPARAMETERS
 DESCRIPTOR.message_types_by_name['ConvergeBehaviorParameters'] = _CONVERGEBEHAVIORPARAMETERS
 DESCRIPTOR.message_types_by_name['RaptorBehaviorParameters'] = _RAPTORBEHAVIORPARAMETERS
 DESCRIPTOR.message_types_by_name['LineFormationParameters'] = _LINEFORMATIONPARAMETERS
 DESCRIPTOR.message_types_by_name['DefendBehaviorParameters'] = _DEFENDBEHAVIORPARAMETERS
 DESCRIPTOR.message_types_by_name['NavigateToWaypointParameters'] = _NAVIGATETOWAYPOINTPARAMETERS
+DESCRIPTOR.message_types_by_name['AreaCoverageBehaviorParameters'] = _AREACOVERAGEBEHAVIORPARAMETERS
 DESCRIPTOR.message_types_by_name['BehaviorRequest'] = _BEHAVIORREQUEST
 DESCRIPTOR.enum_types_by_name['Behavior'] = _BEHAVIOR
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -502,6 +560,13 @@ NavigateToWaypointParameters = _reflection.GeneratedProtocolMessageType('Navigat
   # @@protoc_insertion_point(class_scope:sbai_behavior_protos.NavigateToWaypointParameters)
   })
 _sym_db.RegisterMessage(NavigateToWaypointParameters)
+
+AreaCoverageBehaviorParameters = _reflection.GeneratedProtocolMessageType('AreaCoverageBehaviorParameters', (_message.Message,), {
+  'DESCRIPTOR' : _AREACOVERAGEBEHAVIORPARAMETERS,
+  '__module__' : 'sbai_behavior_protos.behavior_request_pb2'
+  # @@protoc_insertion_point(class_scope:sbai_behavior_protos.AreaCoverageBehaviorParameters)
+  })
+_sym_db.RegisterMessage(AreaCoverageBehaviorParameters)
 
 BehaviorRequest = _reflection.GeneratedProtocolMessageType('BehaviorRequest', (_message.Message,), {
   'DESCRIPTOR' : _BEHAVIORREQUEST,

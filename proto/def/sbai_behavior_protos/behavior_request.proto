@@ -11,6 +11,7 @@ enum Behavior {
     LINE_FORMATION = 3;
     RAPTOR = 4;
     NAVIGATE_TO_WAYPOINT = 5;
+    AREA_COVERAGE = 6;
 }
 
 message SurroundBehaviorParameters {
@@ -46,6 +47,11 @@ message NavigateToWaypointParameters {
     float desired_yaw_deg = 2;
 }
 
+message AreaCoverageBehaviorParameters {
+    repeated sbai_geographic_protos.GeoPoint coverage_area = 1;
+    float lane_width_m = 2;
+}
+
 message BehaviorRequest {
     // Number of agents to assign to this behavior
     uint32 number_of_assigned_agents = 1;
@@ -59,6 +65,7 @@ message BehaviorRequest {
         LineFormationParameters linear_formation = 6;
         RaptorBehaviorParameters raptor = 7;
         NavigateToWaypointParameters waypoint_navigation = 8;
+        AreaCoverageBehaviorParameters area_coverage = 9;
         // Add other behavior-specific parameter messages here as needed
     }
 }
