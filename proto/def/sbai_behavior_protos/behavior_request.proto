@@ -10,7 +10,7 @@ enum Behavior {
     DEFEND = 2;
     LINE_FORMATION = 3;
     RAPTOR = 4;
-    NAVIGATE_TO_WAYPOINT = 5;
+    MULTI_WAYPOINT_NAVIGATION = 5;
     AREA_COVERAGE = 6;
 }
 
@@ -42,9 +42,9 @@ message DefendBehaviorParameters {
     float defend_radius_m = 2;
 }
 
-message NavigateToWaypointParameters {
-    sbai_geographic_protos.GeoPoint desired_waypoint = 1;
-    float desired_yaw_deg = 2;
+message MultiWaypointNavigationParameters {
+    repeated sbai_geographic_protos.GeoPoint desired_waypoints = 1;
+    float desired_final_yaw_deg = 2;
 }
 
 message AreaCoverageBehaviorParameters {
@@ -64,7 +64,7 @@ message BehaviorRequest {
         DefendBehaviorParameters defend = 5;
         LineFormationParameters linear_formation = 6;
         RaptorBehaviorParameters raptor = 7;
-        NavigateToWaypointParameters waypoint_navigation = 8;
+        MultiWaypointNavigationParameters waypoint_navigation = 8;
         AreaCoverageBehaviorParameters area_coverage = 9;
         // Add other behavior-specific parameter messages here as needed
     }

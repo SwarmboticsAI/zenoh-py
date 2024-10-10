@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n,sbai_cortex_protos/cortex_state_update.proto\x12\x12sbai_cortex_protos\"G\n\x11\x43ortexStateUpdate\x12\x32\n\tnew_state\x18\x01 \x01(\x0e\x32\x1f.sbai_cortex_protos.CortexState*^\n\x0b\x43ortexState\x12\x08\n\x04INIT\x10\x00\x12\r\n\tHIBERNATE\x10\x01\x12\x0b\n\x07STANDBY\x10\x02\x12\n\n\x06TELEOP\x10\x03\x12\r\n\tSOLO_AUTO\x10\x04\x12\x0e\n\nSWARM_AUTO\x10\x05\x62\x06proto3'
+  serialized_pb=b'\n,sbai_cortex_protos/cortex_state_update.proto\x12\x12sbai_cortex_protos\"G\n\x11\x43ortexStateUpdate\x12\x32\n\tnew_state\x18\x01 \x01(\x0e\x32\x1f.sbai_cortex_protos.CortexState*:\n\x0b\x43ortexState\x12\x08\n\x04INIT\x10\x00\x12\x0b\n\x07STANDBY\x10\x01\x12\n\n\x06TELEOP\x10\x02\x12\x08\n\x04\x41UTO\x10\x03\x62\x06proto3'
 )
 
 _CORTEXSTATE = _descriptor.EnumDescriptor(
@@ -36,27 +36,17 @@ _CORTEXSTATE = _descriptor.EnumDescriptor(
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='HIBERNATE', index=1, number=1,
+      name='STANDBY', index=1, number=1,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='STANDBY', index=2, number=2,
+      name='TELEOP', index=2, number=2,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TELEOP', index=3, number=3,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='SOLO_AUTO', index=4, number=4,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='SWARM_AUTO', index=5, number=5,
+      name='AUTO', index=3, number=3,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
@@ -64,17 +54,15 @@ _CORTEXSTATE = _descriptor.EnumDescriptor(
   containing_type=None,
   serialized_options=None,
   serialized_start=141,
-  serialized_end=235,
+  serialized_end=199,
 )
 _sym_db.RegisterEnumDescriptor(_CORTEXSTATE)
 
 CortexState = enum_type_wrapper.EnumTypeWrapper(_CORTEXSTATE)
 INIT = 0
-HIBERNATE = 1
-STANDBY = 2
-TELEOP = 3
-SOLO_AUTO = 4
-SWARM_AUTO = 5
+STANDBY = 1
+TELEOP = 2
+AUTO = 3
 
 
 

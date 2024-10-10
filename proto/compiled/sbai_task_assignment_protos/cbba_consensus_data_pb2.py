@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n5sbai_task_assignment_protos/cbba_consensus_data.proto\x12\x1bsbai_task_assignment_protos\x1a\x32sbai_task_assignment_protos/update_iteration.proto\x1a/sbai_task_assignment_protos/winning_agent.proto\x1a-sbai_task_assignment_protos/winning_bid.proto\"\xe6\x01\n\x11\x43\x42\x42\x41\x43onsensusData\x12\x42\n\x11winning_bids_list\x18\x01 \x03(\x0b\x32\'.sbai_task_assignment_protos.WinningBid\x12\x46\n\x13winning_agents_list\x18\x02 \x03(\x0b\x32).sbai_task_assignment_protos.WinningAgent\x12\x45\n\x0ftime_stamp_list\x18\x03 \x03(\x0b\x32,.sbai_task_assignment_protos.UpdateIterationb\x06proto3'
+  serialized_pb=b'\n5sbai_task_assignment_protos/cbba_consensus_data.proto\x12\x1bsbai_task_assignment_protos\x1a\x32sbai_task_assignment_protos/update_iteration.proto\x1a/sbai_task_assignment_protos/winning_agent.proto\x1a-sbai_task_assignment_protos/winning_bid.proto\"\x82\x02\n\x11\x43\x42\x42\x41\x43onsensusData\x12\x42\n\x11winning_bids_list\x18\x01 \x03(\x0b\x32\'.sbai_task_assignment_protos.WinningBid\x12\x46\n\x13winning_agents_list\x18\x02 \x03(\x0b\x32).sbai_task_assignment_protos.WinningAgent\x12\x45\n\x0ftime_stamp_list\x18\x03 \x03(\x0b\x32,.sbai_task_assignment_protos.UpdateIteration\x12\x1a\n\x12\x62\x65lieves_converged\x18\x04 \x01(\x08\x62\x06proto3'
   ,
   dependencies=[sbai__task__assignment__protos_dot_update__iteration__pb2.DESCRIPTOR,sbai__task__assignment__protos_dot_winning__agent__pb2.DESCRIPTOR,sbai__task__assignment__protos_dot_winning__bid__pb2.DESCRIPTOR,])
 
@@ -58,6 +58,13 @@ _CBBACONSENSUSDATA = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='believes_converged', full_name='sbai_task_assignment_protos.CBBAConsensusData.believes_converged', index=3,
+      number=4, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -71,7 +78,7 @@ _CBBACONSENSUSDATA = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=235,
-  serialized_end=465,
+  serialized_end=493,
 )
 
 _CBBACONSENSUSDATA.fields_by_name['winning_bids_list'].message_type = sbai__task__assignment__protos_dot_winning__bid__pb2._WINNINGBID

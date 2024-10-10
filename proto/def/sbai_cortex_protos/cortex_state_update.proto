@@ -4,11 +4,9 @@ package sbai_cortex_protos;
 
 enum CortexState {
     INIT = 0;
-    HIBERNATE = 1;
-    STANDBY = 2;
-    TELEOP = 3;
-    SOLO_AUTO = 4;
-    SWARM_AUTO = 5;
+    STANDBY = 1;
+    TELEOP = 2;
+    AUTO = 3;
 }
 
 message CortexStateUpdate {
