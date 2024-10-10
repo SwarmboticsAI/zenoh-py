@@ -71,6 +71,10 @@ async def publish_heartbeat(session, robot_id, allow_lost_connections):
             heartbeat.gps_coordinate.longitude = current_longitude
             heartbeat.gps_coordinate.altitude = random.uniform(0, 100)
 
+            heartbeat.degrees_from_magnetic_north = 45
+            heartbeat.battery_percentage = 66.0
+            heartbeat.wheel_speed_m_per_s = 1.0
+
             serialized_data = heartbeat.SerializeToString()
             publisher.put(serialized_data)
             
