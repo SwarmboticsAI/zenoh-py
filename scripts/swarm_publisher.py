@@ -55,7 +55,7 @@ async def publish_heartbeat(session, robot_id, allow_lost_connections):
             heartbeat.ip_address = f"192.168.0.143"
             heartbeat.state.new_state = current_state
             
-            heartbeat.pose.header.frame_id = "map"
+            heartbeat.pose.header.frame_id = "swarm/map"
             heartbeat.pose.header.stamp.sec = int(current_time)
             heartbeat.pose.header.stamp.nanosec = int((current_time - int(current_time)) * 1e9)
             
