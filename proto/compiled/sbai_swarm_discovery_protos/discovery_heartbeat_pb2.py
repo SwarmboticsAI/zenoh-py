@@ -11,9 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from sbai_cortex_protos import cortex_state_update_pb2 as sbai__cortex__protos_dot_cortex__state__update__pb2
 from sbai_geometry_protos import pose_stamped_pb2 as sbai__geometry__protos_dot_pose__stamped__pb2
-from sbai_geographic_protos import geo_point_pb2 as sbai__geographic__protos_dot_geo__point__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -22,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n5sbai_swarm_discovery_protos/discovery_heartbeat.proto\x12\x1bsbai_swarm_discovery_protos\x1a,sbai_cortex_protos/cortex_state_update.proto\x1a\'sbai_geometry_protos/pose_stamped.proto\x1a&sbai_geographic_protos/geo_point.proto\"\xd0\x02\n\x12\x44iscoveryHeartbeat\x12\x34\n\x05state\x18\x01 \x01(\x0b\x32%.sbai_cortex_protos.CortexStateUpdate\x12\x10\n\x08robot_id\x18\x02 \x01(\t\x12\x12\n\nip_address\x18\x03 \x01(\t\x12\x16\n\x0evpn_ip_address\x18\x04 \x01(\t\x12/\n\x04pose\x18\x05 \x01(\x0b\x32!.sbai_geometry_protos.PoseStamped\x12\x38\n\x0egps_coordinate\x18\x06 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12#\n\x1b\x64\x65grees_from_magnetic_north\x18\x07 \x01(\x01\x12\x1a\n\x12\x62\x61ttery_percentage\x18\x08 \x01(\x01\x12\x1a\n\x12\x62ody_speed_m_per_s\x18\t \x01(\x01\x62\x06proto3'
+  serialized_pb=b'\n5sbai_swarm_discovery_protos/discovery_heartbeat.proto\x12\x1bsbai_swarm_discovery_protos\x1a\'sbai_geometry_protos/pose_stamped.proto\"h\n\x12\x44iscoveryHeartbeat\x12\x10\n\x08robot_id\x18\x01 \x01(\t\x12@\n\x15pose_shared_map_frame\x18\x02 \x01(\x0b\x32!.sbai_geometry_protos.PoseStampedb\x06proto3'
   ,
-  dependencies=[sbai__cortex__protos_dot_cortex__state__update__pb2.DESCRIPTOR,sbai__geometry__protos_dot_pose__stamped__pb2.DESCRIPTOR,sbai__geographic__protos_dot_geo__point__pb2.DESCRIPTOR,])
+  dependencies=[sbai__geometry__protos_dot_pose__stamped__pb2.DESCRIPTOR,])
 
 
 
@@ -38,65 +36,16 @@ _DISCOVERYHEARTBEAT = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='state', full_name='sbai_swarm_discovery_protos.DiscoveryHeartbeat.state', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='robot_id', full_name='sbai_swarm_discovery_protos.DiscoveryHeartbeat.robot_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
+      name='robot_id', full_name='sbai_swarm_discovery_protos.DiscoveryHeartbeat.robot_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ip_address', full_name='sbai_swarm_discovery_protos.DiscoveryHeartbeat.ip_address', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='vpn_ip_address', full_name='sbai_swarm_discovery_protos.DiscoveryHeartbeat.vpn_ip_address', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='pose', full_name='sbai_swarm_discovery_protos.DiscoveryHeartbeat.pose', index=4,
-      number=5, type=11, cpp_type=10, label=1,
+      name='pose_shared_map_frame', full_name='sbai_swarm_discovery_protos.DiscoveryHeartbeat.pose_shared_map_frame', index=1,
+      number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='gps_coordinate', full_name='sbai_swarm_discovery_protos.DiscoveryHeartbeat.gps_coordinate', index=5,
-      number=6, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='degrees_from_magnetic_north', full_name='sbai_swarm_discovery_protos.DiscoveryHeartbeat.degrees_from_magnetic_north', index=6,
-      number=7, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='battery_percentage', full_name='sbai_swarm_discovery_protos.DiscoveryHeartbeat.battery_percentage', index=7,
-      number=8, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='body_speed_m_per_s', full_name='sbai_swarm_discovery_protos.DiscoveryHeartbeat.body_speed_m_per_s', index=8,
-      number=9, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -112,13 +61,11 @@ _DISCOVERYHEARTBEAT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=214,
-  serialized_end=550,
+  serialized_start=127,
+  serialized_end=231,
 )
 
-_DISCOVERYHEARTBEAT.fields_by_name['state'].message_type = sbai__cortex__protos_dot_cortex__state__update__pb2._CORTEXSTATEUPDATE
-_DISCOVERYHEARTBEAT.fields_by_name['pose'].message_type = sbai__geometry__protos_dot_pose__stamped__pb2._POSESTAMPED
-_DISCOVERYHEARTBEAT.fields_by_name['gps_coordinate'].message_type = sbai__geographic__protos_dot_geo__point__pb2._GEOPOINT
+_DISCOVERYHEARTBEAT.fields_by_name['pose_shared_map_frame'].message_type = sbai__geometry__protos_dot_pose__stamped__pb2._POSESTAMPED
 DESCRIPTOR.message_types_by_name['DiscoveryHeartbeat'] = _DISCOVERYHEARTBEAT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package sbai_tak_heartbeat_publisher_protos;
+
+import "sbai_cortex_protos/cortex_state_update.proto";
+import "sbai_geographic_protos/geo_point.proto";
+
+message ToTakHeartbeat {
+    string robot_id = 1;
+    string ip_address = 2;
+    string vpn_ip_address = 3;
+    sbai_cortex_protos.CortexStateUpdate state = 4;
+    sbai_geographic_protos.GeoPoint gps_coordinate = 5;
+    double magnetic_heading_deg = 6;
+    double battery_percentage = 7;
+    double body_speed_m_per_s = 8;
+}

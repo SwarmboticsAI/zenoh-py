@@ -5,9 +5,6 @@ package sbai_system_alert_protos;
 import "sbai_system_alert_protos/system_alert.proto";
 
 message SystemReport {
-    repeated sbai_system_alert_protos.SystemAlert info_alerts = 1;
-    repeated sbai_system_alert_protos.SystemAlert warning_alerts = 2;
-    repeated sbai_system_alert_protos.SystemAlert error_alerts = 3;
-    repeated sbai_system_alert_protos.SystemAlert fatal_alerts = 4;
-    string robot_id = 5;
+    repeated sbai_system_alert_protos.SystemAlert alerts = 1;
+    string robot_id = 2;
 }

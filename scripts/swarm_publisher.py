@@ -14,7 +14,7 @@ proto_compiled_dir = root_dir / 'proto' / 'compiled'
 sys.path.insert(0, str(proto_compiled_dir))
 
 # Import the generated protobuf classes
-from sbai_swarm_discovery_protos import discovery_heartbeat_pb2
+from sbai_tak_heartbeat_publisher_protos import to_tak_heartbeat_pb2
 from sbai_cortex_protos import cortex_state_update_pb2
 from sbai_geometry_protos import pose_stamped_pb2, pose_pb2, vector3_pb2, quaternion_pb2
 from sbai_std_protos import header_pb2
@@ -25,7 +25,7 @@ from sbai_geographic_protos import geo_point_pb2
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 async def publish_heartbeat(session, robot_id, allow_lost_connections):
-    key = "ants/discovery_heartbeat"
+    key = "tak/to_tak_heartbeat"
     try:
         publisher = session.declare_publisher(key)
     except Exception as e:
@@ -50,28 +50,16 @@ async def publish_heartbeat(session, robot_id, allow_lost_connections):
             current_latitude += random.uniform(-0.000005, 0.000005)
             current_longitude += random.uniform(-0.000005, 0.000005)
 
-            heartbeat = discovery_heartbeat_pb2.DiscoveryHeartbeat()
+            heartbeat = to_tak_heartbeat_pb2.ToTakHeartbeat()
             heartbeat.robot_id = f"robot_{robot_id}"
             heartbeat.ip_address = f"192.168.0.143"
             heartbeat.state.new_state = current_state
-            
-            heartbeat.pose.header.frame_id = "swarm/map"
-            heartbeat.pose.header.stamp.sec = int(current_time)
-            heartbeat.pose.header.stamp.nanosec = int((current_time - int(current_time)) * 1e9)
-            
-            heartbeat.pose.pose.position.x = (current_longitude + 111.8541477) * 111000  # Rough conversion to meters
-            heartbeat.pose.pose.position.y = (current_latitude - 33.5933764) * 111000  # Rough conversion to meters
-            heartbeat.pose.pose.position.z = 0
-            heartbeat.pose.pose.orientation.x = 0
-            heartbeat.pose.pose.orientation.y = 0
-            heartbeat.pose.pose.orientation.z = 0
-            heartbeat.pose.pose.orientation.w = 1
 
             heartbeat.gps_coordinate.latitude = current_latitude
             heartbeat.gps_coordinate.longitude = current_longitude
             heartbeat.gps_coordinate.altitude = random.uniform(0, 100)
 
-            heartbeat.degrees_from_magnetic_north = 45
+            heartbeat.magnetic_heading_deg = 45
             heartbeat.battery_percentage = 66.0
             heartbeat.body_speed_m_per_s = 1.0
 

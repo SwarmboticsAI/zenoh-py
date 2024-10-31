@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n+sbai_system_alert_protos/system_alert.proto\x12\x18sbai_system_alert_protos\"Z\n\x0bSystemAlert\x12\x10\n\x08severity\x18\x01 \x01(\t\x12\x14\n\x0csubsystem_id\x18\x02 \x01(\t\x12\x0f\n\x07node_id\x18\x03 \x01(\t\x12\x12\n\nalert_code\x18\x04 \x01(\tb\x06proto3'
+  serialized_pb=b'\n+sbai_system_alert_protos/system_alert.proto\x12\x18sbai_system_alert_protos\"a\n\x0bSystemAlert\x12\x10\n\x08severity\x18\x01 \x01(\t\x12\x16\n\x0esubsystem_name\x18\x02 \x01(\t\x12\x11\n\tnode_name\x18\x03 \x01(\t\x12\x15\n\ralert_message\x18\x04 \x01(\tb\x06proto3'
 )
 
 
@@ -41,21 +41,21 @@ _SYSTEMALERT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='subsystem_id', full_name='sbai_system_alert_protos.SystemAlert.subsystem_id', index=1,
+      name='subsystem_name', full_name='sbai_system_alert_protos.SystemAlert.subsystem_name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='node_id', full_name='sbai_system_alert_protos.SystemAlert.node_id', index=2,
+      name='node_name', full_name='sbai_system_alert_protos.SystemAlert.node_name', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='alert_code', full_name='sbai_system_alert_protos.SystemAlert.alert_code', index=3,
+      name='alert_message', full_name='sbai_system_alert_protos.SystemAlert.alert_message', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -74,7 +74,7 @@ _SYSTEMALERT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=73,
-  serialized_end=163,
+  serialized_end=170,
 )
 
 DESCRIPTOR.message_types_by_name['SystemAlert'] = _SYSTEMALERT
