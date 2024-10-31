@@ -6,7 +6,7 @@ import traceback
 import asyncio
 import random
 import time
-from zenoh import Session, Config
+import zenoh
 
 # Add the compiled protos directory to the Python path
 root_dir = Path(__file__).parent.parent
@@ -88,7 +88,7 @@ async def main():
     logging.info(f"Starting heartbeat publisher for {num_robots} robots")
 
     try:
-        session = Session(Config())
+        session = zenoh.open(zenoh.Config())
         logging.info("Zenoh session created successfully")
     except Exception as e:
         logging.error(f"Failed to create Zenoh session: {e}")
