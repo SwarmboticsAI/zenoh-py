@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package sbai_task_protos;
+
+import "sbai_geometry_protos/pose_stamped.proto";
+
+// Represents a constraint (placeholder - define based on your constraint_t type)
+message Constraint {
+  // Define your constraint fields here
+}
+
+message NavigationTask {
+  sbai_geometry_protos.PoseStamped goal = 1;
+  optional Constraint constraint = 2;
+  repeated sbai_geometry_protos.PoseStamped route = 3;  // for route following
+}
+
+message AssignmentTask {
+  // settings or other stuff here...
+}
+
+enum TaskType
+{
+    COMPOSITE = 0;
+    PERFORM_ASSIGNMENT = 1;
+    FREE_SPACE_NAVIGATE_TO_POSE = 2;
+    FOLLOW_ROUTE_TO_POSE = 3;
+    WAIT_FOR_INTERVENTION = 4;
+}
+
+// Represents a unit of work in the swarm stack
+message Task {
+    // ID of the higher-level swarm behavior this task belongs to
+    int32 behavior_id = 1;
+
+    // Unique identifier for this task w.r.t. the behavior
+    int32 task_id = 2;
+
+    TaskType task_type = 3;
+
+    repeated Task sub_tasks = 4;
+    optional NavigationTask navigation_task = 5;
+    optional AssignmentTask assignment_task = 6;
+}

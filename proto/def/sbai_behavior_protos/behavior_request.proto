@@ -3,6 +3,7 @@ syntax = "proto3";
 package sbai_behavior_protos;
 
 import "sbai_geographic_protos/geo_point.proto";
+import "sbai_std_protos/string.proto";
 
 enum Behavior {
     SURROUND = 0;
@@ -53,19 +54,25 @@ message AreaCoverageBehaviorParameters {
 }
 
 message BehaviorRequest {
-    // Number of agents to assign to this behavior
-    uint32 number_of_assigned_agents = 1;
+
+    // Behavior Enum that is requested
     Behavior requested_behavior = 2;
+
+    // Unique ID for the requested behavior
+    int32 behavior_request_id = 3;  // The unique ID for the behavior request message
+
+    // List of requested behavior participants
+    repeated sbai_std_protos.String participating_robot_ids = 4;
 
     // Behavior Specific Parameters
     oneof behavior_params {
-        SurroundBehaviorParameters surround = 3;
-        ConvergeBehaviorParameters converge = 4;
-        DefendBehaviorParameters defend = 5;
-        LineFormationParameters linear_formation = 6;
-        RaptorBehaviorParameters raptor = 7;
-        MultiWaypointNavigationParameters waypoint_navigation = 8;
-        AreaCoverageBehaviorParameters area_coverage = 9;
+        SurroundBehaviorParameters surround = 5;
+        ConvergeBehaviorParameters converge = 6;
+        DefendBehaviorParameters defend = 7;
+        LineFormationParameters linear_formation = 8;
+        RaptorBehaviorParameters raptor = 9;
+        MultiWaypointNavigationParameters waypoint_navigation = 10;
+        AreaCoverageBehaviorParameters area_coverage = 11;
         // Add other behavior-specific parameter messages here as needed
     }
 }

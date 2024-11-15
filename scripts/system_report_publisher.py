@@ -54,17 +54,61 @@ SYSTEM_REPORTS = {
             }
         ]
     },
-    # 4: {
-    #     "robot_id": "robot_300",
-    #     "alerts": [
-    #         {
-    #             "severity": "E",
-    #             "subsystem_name": "Navigation",
-    #             "node_name": "path_planner",
-    #             "alert_message": "nav:1234:problem"
-    #         }
-    #     ]
-    # }
+    4: {
+        "robot_id": "robot_300",
+        "alerts": [
+            {
+                "severity": "E",
+                "subsystem_name": "Navigation",
+                "node_name": "path_planner",
+                "alert_message": "nav:failed:1234"
+            }
+        ]
+    },
+    5: {
+        "robot_id": "robot_300",
+        "alerts": [
+            {
+                "severity": "I",
+                "subsystem_name": "state_change_test",
+                "node_name": "state_change_Test",
+                "alert_message": "state_change:TELEOP"
+            }
+        ]
+    },
+    6: {
+        "robot_id": "robot_300",
+        "alerts": [
+            {
+                "severity": "I",
+                "subsystem_name": "state_change_test",
+                "node_name": "state_change_Test",
+                "alert_message": "state_change:AUTO"
+            }
+        ]
+    },
+    7: {
+        "robot_id": "robot_300",
+        "alerts": [
+            {
+                "severity": "E",
+                "subsystem_name": "state_change_test",
+                "node_name": "state_change_Test",
+                "alert_message": "state_change:TELEOP:[message 1,message 2, message 3]"
+            }
+        ]
+    },
+    8: {
+        "robot_id": "robot_300",
+        "alerts": [
+            {
+                "severity": "E",
+                "subsystem_name": "state_change_test",
+                "node_name": "state_change_Test",
+                "alert_message": "state_change:AUTO:[message 1,message 2, message 3]"
+            }
+        ]
+    }
 }
 
 def create_system_report(config):
@@ -162,7 +206,11 @@ async def main():
             print(f"1: {robot} - nav active")
             print(f"2: {robot} - nav completed")
             print(f"3: {robot} - nav canceled")
-            # print(f"4: {robot} - nav error")
+            print(f"4: {robot} - nav error")
+            print(f"5: {robot} - TELEOP change")
+            print(f"6: {robot} - AUTO change")
+            print(f"7: {robot} - TELEOP error")
+            print(f"8: {robot} - AUTO error")
             print(f"9: {robot} - send single geopath")
             
             try:

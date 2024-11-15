@@ -11,5 +11,5 @@ message CBBAConsensusData {
     repeated sbai_task_assignment_protos.WinningAgent winning_agents_list = 2;
     repeated sbai_task_assignment_protos.UpdateIteration time_stamp_list = 3;
     bool believes_converged = 4;
-    bool is_participating = 5;
+    int32 behavior_request_id = 5;
 }

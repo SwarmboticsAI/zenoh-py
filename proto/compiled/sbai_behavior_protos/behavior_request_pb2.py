@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 from sbai_geographic_protos import geo_point_pb2 as sbai__geographic__protos_dot_geo__point__pb2
+from sbai_std_protos import string_pb2 as sbai__std__protos_dot_string__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n+sbai_behavior_protos/behavior_request.proto\x12\x14sbai_behavior_protos\x1a&sbai_geographic_protos/geo_point.proto\"q\n\x1aSurroundBehaviorParameters\x12\x38\n\x0esurround_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x19\n\x11surround_radius_m\x18\x02 \x01(\x02\"x\n\x1a\x43onvergeBehaviorParameters\x12\x38\n\x0e\x63onverge_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12 \n\x18\x63onverge_safety_radius_m\x18\x02 \x01(\x02\"\x82\x01\n\x18RaptorBehaviorParameters\x12\x36\n\x0craptor_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x16\n\x0eouter_radius_m\x18\x02 \x01(\x02\x12\x16\n\x0einner_radius_m\x18\x03 \x01(\x02\"\xa0\x01\n\x17LineFormationParameters\x12\x39\n\x0freference_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x1d\n\x15separation_distance_m\x18\x02 \x01(\x02\x12\x14\n\x0cline_yaw_deg\x18\x03 \x01(\x02\x12\x15\n\rrobot_yaw_deg\x18\x04 \x01(\x02\"k\n\x18\x44\x65\x66\x65ndBehaviorParameters\x12\x36\n\x0c\x64\x65\x66\x65nd_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x17\n\x0f\x64\x65\x66\x65nd_radius_m\x18\x02 \x01(\x02\"\x7f\n!MultiWaypointNavigationParameters\x12;\n\x11\x64\x65sired_waypoints\x18\x01 \x03(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x1d\n\x15\x64\x65sired_final_yaw_deg\x18\x02 \x01(\x02\"o\n\x1e\x41reaCoverageBehaviorParameters\x12\x37\n\rcoverage_area\x18\x01 \x03(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x14\n\x0clane_width_m\x18\x02 \x01(\x02\"\x85\x05\n\x0f\x42\x65haviorRequest\x12!\n\x19number_of_assigned_agents\x18\x01 \x01(\r\x12:\n\x12requested_behavior\x18\x02 \x01(\x0e\x32\x1e.sbai_behavior_protos.Behavior\x12\x44\n\x08surround\x18\x03 \x01(\x0b\x32\x30.sbai_behavior_protos.SurroundBehaviorParametersH\x00\x12\x44\n\x08\x63onverge\x18\x04 \x01(\x0b\x32\x30.sbai_behavior_protos.ConvergeBehaviorParametersH\x00\x12@\n\x06\x64\x65\x66\x65nd\x18\x05 \x01(\x0b\x32..sbai_behavior_protos.DefendBehaviorParametersH\x00\x12I\n\x10linear_formation\x18\x06 \x01(\x0b\x32-.sbai_behavior_protos.LineFormationParametersH\x00\x12@\n\x06raptor\x18\x07 \x01(\x0b\x32..sbai_behavior_protos.RaptorBehaviorParametersH\x00\x12V\n\x13waypoint_navigation\x18\x08 \x01(\x0b\x32\x37.sbai_behavior_protos.MultiWaypointNavigationParametersH\x00\x12M\n\rarea_coverage\x18\t \x01(\x0b\x32\x34.sbai_behavior_protos.AreaCoverageBehaviorParametersH\x00\x42\x11\n\x0f\x62\x65havior_params*\x84\x01\n\x08\x42\x65havior\x12\x0c\n\x08SURROUND\x10\x00\x12\x0c\n\x08\x43ONVERGE\x10\x01\x12\n\n\x06\x44\x45\x46\x45ND\x10\x02\x12\x12\n\x0eLINE_FORMATION\x10\x03\x12\n\n\x06RAPTOR\x10\x04\x12\x1d\n\x19MULTI_WAYPOINT_NAVIGATION\x10\x05\x12\x11\n\rAREA_COVERAGE\x10\x06\x62\x06proto3'
+  serialized_pb=b'\n+sbai_behavior_protos/behavior_request.proto\x12\x14sbai_behavior_protos\x1a&sbai_geographic_protos/geo_point.proto\x1a\x1csbai_std_protos/string.proto\"q\n\x1aSurroundBehaviorParameters\x12\x38\n\x0esurround_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x19\n\x11surround_radius_m\x18\x02 \x01(\x02\"x\n\x1a\x43onvergeBehaviorParameters\x12\x38\n\x0e\x63onverge_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12 \n\x18\x63onverge_safety_radius_m\x18\x02 \x01(\x02\"\x82\x01\n\x18RaptorBehaviorParameters\x12\x36\n\x0craptor_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x16\n\x0eouter_radius_m\x18\x02 \x01(\x02\x12\x16\n\x0einner_radius_m\x18\x03 \x01(\x02\"\xa0\x01\n\x17LineFormationParameters\x12\x39\n\x0freference_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x1d\n\x15separation_distance_m\x18\x02 \x01(\x02\x12\x14\n\x0cline_yaw_deg\x18\x03 \x01(\x02\x12\x15\n\rrobot_yaw_deg\x18\x04 \x01(\x02\"k\n\x18\x44\x65\x66\x65ndBehaviorParameters\x12\x36\n\x0c\x64\x65\x66\x65nd_point\x18\x01 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x17\n\x0f\x64\x65\x66\x65nd_radius_m\x18\x02 \x01(\x02\"\x7f\n!MultiWaypointNavigationParameters\x12;\n\x11\x64\x65sired_waypoints\x18\x01 \x03(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x1d\n\x15\x64\x65sired_final_yaw_deg\x18\x02 \x01(\x02\"o\n\x1e\x41reaCoverageBehaviorParameters\x12\x37\n\rcoverage_area\x18\x01 \x03(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x14\n\x0clane_width_m\x18\x02 \x01(\x02\"\xb9\x05\n\x0f\x42\x65haviorRequest\x12:\n\x12requested_behavior\x18\x02 \x01(\x0e\x32\x1e.sbai_behavior_protos.Behavior\x12\x1b\n\x13\x62\x65havior_request_id\x18\x03 \x01(\x05\x12\x38\n\x17participating_robot_ids\x18\x04 \x03(\x0b\x32\x17.sbai_std_protos.String\x12\x44\n\x08surround\x18\x05 \x01(\x0b\x32\x30.sbai_behavior_protos.SurroundBehaviorParametersH\x00\x12\x44\n\x08\x63onverge\x18\x06 \x01(\x0b\x32\x30.sbai_behavior_protos.ConvergeBehaviorParametersH\x00\x12@\n\x06\x64\x65\x66\x65nd\x18\x07 \x01(\x0b\x32..sbai_behavior_protos.DefendBehaviorParametersH\x00\x12I\n\x10linear_formation\x18\x08 \x01(\x0b\x32-.sbai_behavior_protos.LineFormationParametersH\x00\x12@\n\x06raptor\x18\t \x01(\x0b\x32..sbai_behavior_protos.RaptorBehaviorParametersH\x00\x12V\n\x13waypoint_navigation\x18\n \x01(\x0b\x32\x37.sbai_behavior_protos.MultiWaypointNavigationParametersH\x00\x12M\n\rarea_coverage\x18\x0b \x01(\x0b\x32\x34.sbai_behavior_protos.AreaCoverageBehaviorParametersH\x00\x42\x11\n\x0f\x62\x65havior_params*\x84\x01\n\x08\x42\x65havior\x12\x0c\n\x08SURROUND\x10\x00\x12\x0c\n\x08\x43ONVERGE\x10\x01\x12\n\n\x06\x44\x45\x46\x45ND\x10\x02\x12\x12\n\x0eLINE_FORMATION\x10\x03\x12\n\n\x06RAPTOR\x10\x04\x12\x1d\n\x19MULTI_WAYPOINT_NAVIGATION\x10\x05\x12\x11\n\rAREA_COVERAGE\x10\x06\x62\x06proto3'
   ,
-  dependencies=[sbai__geographic__protos_dot_geo__point__pb2.DESCRIPTOR,])
+  dependencies=[sbai__geographic__protos_dot_geo__point__pb2.DESCRIPTOR,sbai__std__protos_dot_string__pb2.DESCRIPTOR,])
 
 _BEHAVIOR = _descriptor.EnumDescriptor(
   name='Behavior',
@@ -70,8 +71,8 @@ _BEHAVIOR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1642,
-  serialized_end=1774,
+  serialized_start=1724,
+  serialized_end=1856,
 )
 _sym_db.RegisterEnumDescriptor(_BEHAVIOR)
 
@@ -120,8 +121,8 @@ _SURROUNDBEHAVIORPARAMETERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=109,
-  serialized_end=222,
+  serialized_start=139,
+  serialized_end=252,
 )
 
 
@@ -159,8 +160,8 @@ _CONVERGEBEHAVIORPARAMETERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=224,
-  serialized_end=344,
+  serialized_start=254,
+  serialized_end=374,
 )
 
 
@@ -205,8 +206,8 @@ _RAPTORBEHAVIORPARAMETERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=347,
-  serialized_end=477,
+  serialized_start=377,
+  serialized_end=507,
 )
 
 
@@ -258,8 +259,8 @@ _LINEFORMATIONPARAMETERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=480,
-  serialized_end=640,
+  serialized_start=510,
+  serialized_end=670,
 )
 
 
@@ -297,8 +298,8 @@ _DEFENDBEHAVIORPARAMETERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=642,
-  serialized_end=749,
+  serialized_start=672,
+  serialized_end=779,
 )
 
 
@@ -336,8 +337,8 @@ _MULTIWAYPOINTNAVIGATIONPARAMETERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=751,
-  serialized_end=878,
+  serialized_start=781,
+  serialized_end=908,
 )
 
 
@@ -375,8 +376,8 @@ _AREACOVERAGEBEHAVIORPARAMETERS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=880,
-  serialized_end=991,
+  serialized_start=910,
+  serialized_end=1021,
 )
 
 
@@ -389,64 +390,71 @@ _BEHAVIORREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='number_of_assigned_agents', full_name='sbai_behavior_protos.BehaviorRequest.number_of_assigned_agents', index=0,
-      number=1, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='requested_behavior', full_name='sbai_behavior_protos.BehaviorRequest.requested_behavior', index=1,
+      name='requested_behavior', full_name='sbai_behavior_protos.BehaviorRequest.requested_behavior', index=0,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='surround', full_name='sbai_behavior_protos.BehaviorRequest.surround', index=2,
-      number=3, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='behavior_request_id', full_name='sbai_behavior_protos.BehaviorRequest.behavior_request_id', index=1,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='converge', full_name='sbai_behavior_protos.BehaviorRequest.converge', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='participating_robot_ids', full_name='sbai_behavior_protos.BehaviorRequest.participating_robot_ids', index=2,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='defend', full_name='sbai_behavior_protos.BehaviorRequest.defend', index=4,
+      name='surround', full_name='sbai_behavior_protos.BehaviorRequest.surround', index=3,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='linear_formation', full_name='sbai_behavior_protos.BehaviorRequest.linear_formation', index=5,
+      name='converge', full_name='sbai_behavior_protos.BehaviorRequest.converge', index=4,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='raptor', full_name='sbai_behavior_protos.BehaviorRequest.raptor', index=6,
+      name='defend', full_name='sbai_behavior_protos.BehaviorRequest.defend', index=5,
       number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='waypoint_navigation', full_name='sbai_behavior_protos.BehaviorRequest.waypoint_navigation', index=7,
+      name='linear_formation', full_name='sbai_behavior_protos.BehaviorRequest.linear_formation', index=6,
       number=8, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='area_coverage', full_name='sbai_behavior_protos.BehaviorRequest.area_coverage', index=8,
+      name='raptor', full_name='sbai_behavior_protos.BehaviorRequest.raptor', index=7,
       number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='waypoint_navigation', full_name='sbai_behavior_protos.BehaviorRequest.waypoint_navigation', index=8,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='area_coverage', full_name='sbai_behavior_protos.BehaviorRequest.area_coverage', index=9,
+      number=11, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -468,8 +476,8 @@ _BEHAVIORREQUEST = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=994,
-  serialized_end=1639,
+  serialized_start=1024,
+  serialized_end=1721,
 )
 
 _SURROUNDBEHAVIORPARAMETERS.fields_by_name['surround_point'].message_type = sbai__geographic__protos_dot_geo__point__pb2._GEOPOINT
@@ -480,6 +488,7 @@ _DEFENDBEHAVIORPARAMETERS.fields_by_name['defend_point'].message_type = sbai__ge
 _MULTIWAYPOINTNAVIGATIONPARAMETERS.fields_by_name['desired_waypoints'].message_type = sbai__geographic__protos_dot_geo__point__pb2._GEOPOINT
 _AREACOVERAGEBEHAVIORPARAMETERS.fields_by_name['coverage_area'].message_type = sbai__geographic__protos_dot_geo__point__pb2._GEOPOINT
 _BEHAVIORREQUEST.fields_by_name['requested_behavior'].enum_type = _BEHAVIOR
+_BEHAVIORREQUEST.fields_by_name['participating_robot_ids'].message_type = sbai__std__protos_dot_string__pb2._STRING
 _BEHAVIORREQUEST.fields_by_name['surround'].message_type = _SURROUNDBEHAVIORPARAMETERS
 _BEHAVIORREQUEST.fields_by_name['converge'].message_type = _CONVERGEBEHAVIORPARAMETERS
 _BEHAVIORREQUEST.fields_by_name['defend'].message_type = _DEFENDBEHAVIORPARAMETERS

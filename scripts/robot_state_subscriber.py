@@ -22,7 +22,7 @@ def listener(sample):
 
 def main():
     # Initialize Zenoh session
-    session = zenoh.open()
+    session = zenoh.open(zenoh.Config())
 
     # Create a subscriber
     subscriber = session.declare_subscriber("ants/*/state_update_request", listener)
