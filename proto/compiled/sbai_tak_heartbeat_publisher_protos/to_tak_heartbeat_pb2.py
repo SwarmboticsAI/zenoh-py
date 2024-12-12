@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 from sbai_cortex_protos import cortex_state_update_pb2 as sbai__cortex__protos_dot_cortex__state__update__pb2
 from sbai_geographic_protos import geo_point_pb2 as sbai__geographic__protos_dot_geo__point__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -21,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n:sbai_tak_heartbeat_publisher_protos/to_tak_heartbeat.proto\x12#sbai_tak_heartbeat_publisher_protos\x1a,sbai_cortex_protos/cortex_state_update.proto\x1a&sbai_geographic_protos/geo_point.proto\"\x94\x02\n\x0eToTakHeartbeat\x12\x10\n\x08robot_id\x18\x01 \x01(\t\x12\x12\n\nip_address\x18\x02 \x01(\t\x12\x16\n\x0evpn_ip_address\x18\x03 \x01(\t\x12\x34\n\x05state\x18\x04 \x01(\x0b\x32%.sbai_cortex_protos.CortexStateUpdate\x12\x38\n\x0egps_coordinate\x18\x05 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x1c\n\x14magnetic_heading_deg\x18\x06 \x01(\x01\x12\x1a\n\x12\x62\x61ttery_percentage\x18\x07 \x01(\x01\x12\x1a\n\x12\x62ody_speed_m_per_s\x18\x08 \x01(\x01\x62\x06proto3'
+  serialized_pb=b'\n:sbai_tak_heartbeat_publisher_protos/to_tak_heartbeat.proto\x12#sbai_tak_heartbeat_publisher_protos\x1a,sbai_cortex_protos/cortex_state_update.proto\x1a&sbai_geographic_protos/geo_point.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xe9\x02\n\x0eToTakHeartbeat\x12\x10\n\x08robot_id\x18\x01 \x01(\t\x12\x15\n\rplatform_type\x18\x02 \x01(\t\x12\x12\n\nip_address\x18\x03 \x01(\t\x12\x16\n\x0evpn_ip_address\x18\x04 \x01(\t\x12\x34\n\x05state\x18\x05 \x01(\x0b\x32%.sbai_cortex_protos.CortexStateUpdate\x12\x38\n\x0egps_coordinate\x18\x06 \x01(\x0b\x32 .sbai_geographic_protos.GeoPoint\x12\x1c\n\x14magnetic_heading_deg\x18\x07 \x01(\x01\x12\x1a\n\x12\x62\x61ttery_percentage\x18\x08 \x01(\x01\x12\x1a\n\x12\x62ody_speed_m_per_s\x18\t \x01(\x01\x12<\n\x18is_parking_brake_engaged\x18\n \x01(\x0b\x32\x1a.google.protobuf.BoolValueb\x06proto3'
   ,
-  dependencies=[sbai__cortex__protos_dot_cortex__state__update__pb2.DESCRIPTOR,sbai__geographic__protos_dot_geo__point__pb2.DESCRIPTOR,])
+  dependencies=[sbai__cortex__protos_dot_cortex__state__update__pb2.DESCRIPTOR,sbai__geographic__protos_dot_geo__point__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 
 
@@ -44,51 +45,65 @@ _TOTAKHEARTBEAT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='ip_address', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.ip_address', index=1,
+      name='platform_type', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.platform_type', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='vpn_ip_address', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.vpn_ip_address', index=2,
+      name='ip_address', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.ip_address', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='state', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.state', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='vpn_ip_address', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.vpn_ip_address', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='gps_coordinate', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.gps_coordinate', index=4,
+      name='state', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.state', index=4,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='magnetic_heading_deg', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.magnetic_heading_deg', index=5,
-      number=6, type=1, cpp_type=5, label=1,
-      has_default_value=False, default_value=float(0),
+      name='gps_coordinate', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.gps_coordinate', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='battery_percentage', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.battery_percentage', index=6,
+      name='magnetic_heading_deg', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.magnetic_heading_deg', index=6,
       number=7, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='body_speed_m_per_s', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.body_speed_m_per_s', index=7,
+      name='battery_percentage', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.battery_percentage', index=7,
       number=8, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='body_speed_m_per_s', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.body_speed_m_per_s', index=8,
+      number=9, type=1, cpp_type=5, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='is_parking_brake_engaged', full_name='sbai_tak_heartbeat_publisher_protos.ToTakHeartbeat.is_parking_brake_engaged', index=9,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -104,12 +119,13 @@ _TOTAKHEARTBEAT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=186,
-  serialized_end=462,
+  serialized_start=218,
+  serialized_end=579,
 )
 
 _TOTAKHEARTBEAT.fields_by_name['state'].message_type = sbai__cortex__protos_dot_cortex__state__update__pb2._CORTEXSTATEUPDATE
 _TOTAKHEARTBEAT.fields_by_name['gps_coordinate'].message_type = sbai__geographic__protos_dot_geo__point__pb2._GEOPOINT
+_TOTAKHEARTBEAT.fields_by_name['is_parking_brake_engaged'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
 DESCRIPTOR.message_types_by_name['ToTakHeartbeat'] = _TOTAKHEARTBEAT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

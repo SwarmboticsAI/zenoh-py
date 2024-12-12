@@ -63,6 +63,9 @@ async def publish_heartbeat(session, robot_id, allow_lost_connections):
             heartbeat.battery_percentage = 66.0
             heartbeat.body_speed_m_per_s = 1.0
 
+            heartbeat.platform_type = "haul_ant"
+            heartbeat.is_parking_brake_engaged.value = True
+
             serialized_data = heartbeat.SerializeToString()
             publisher.put(serialized_data)
             

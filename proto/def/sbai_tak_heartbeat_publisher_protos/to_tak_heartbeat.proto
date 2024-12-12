@@ -4,14 +4,17 @@ package sbai_tak_heartbeat_publisher_protos;
 
 import "sbai_cortex_protos/cortex_state_update.proto";
 import "sbai_geographic_protos/geo_point.proto";
+import "google/protobuf/wrappers.proto";
 
 message ToTakHeartbeat {
     string robot_id = 1;
-    string ip_address = 2;
-    string vpn_ip_address = 3;
-    sbai_cortex_protos.CortexStateUpdate state = 4;
-    sbai_geographic_protos.GeoPoint gps_coordinate = 5;
-    double magnetic_heading_deg = 6;
-    double battery_percentage = 7;
-    double body_speed_m_per_s = 8;
+    string platform_type = 2;
+    string ip_address = 3;
+    string vpn_ip_address = 4;
+    sbai_cortex_protos.CortexStateUpdate state = 5;
+    sbai_geographic_protos.GeoPoint gps_coordinate = 6;
+    double magnetic_heading_deg = 7;
+    double battery_percentage = 8;
+    double body_speed_m_per_s = 9;
+    google.protobuf.BoolValue is_parking_brake_engaged = 10;
 }

@@ -16,7 +16,7 @@ message NavigationTask {
 }
 
 message AssignmentTask {
-  // settings or other stuff here...
+    repeated string participating_robot_ids = 1;
 }
 
 enum TaskType
