@@ -1,0 +1,22 @@
+{
+    mode: "peer",
+    connect: {
+      endpoints: [
+        "tcp/10.243.145.49:7447"
+      ]
+    },
+    scouting: {
+      multicast: {
+        enabled: false
+      },
+      gossip: {
+        enabled: true,
+        multihop: false,
+        autoconnect: { router: [], peer: [
+          "router",
+          "peer"
+        ]
+        }
+      }
+    }
+  }

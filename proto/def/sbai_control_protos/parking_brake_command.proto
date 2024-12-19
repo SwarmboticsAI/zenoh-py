@@ -4,6 +4,6 @@ package sbai_control_protos;
 
 import "google/protobuf/wrappers.proto";
 
-message ParkingBrakeCommands {
+message ParkingBrakeCommand {
     google.protobuf.BoolValue should_engage_brake = 1;
 }
